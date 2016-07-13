@@ -7,11 +7,10 @@ class res_partner(models.Model):
     _inherit = 'res.partner'
 
     formated_vat = fields.Char(
-        translate=True, string='Printable VAT',
-        store=True, help='Show formatted vat')
+        translate=True, string='Printable VAT', store=True,
+        help='Show formatted vat')
 
-
-    def check_vat_cl(self, vat):
+    def check_vat_cl (self, vat):
         body, vdig = '', ''
         if len(vat) > 9:
             vat = vat.replace('-','',1).replace('.','',2)
@@ -22,14 +21,14 @@ class res_partner(models.Model):
         try:
             vali = range(2,8) + [2,3]
             operar = '0123456789K0'[11 - (
-                sum([int(digit)*factor for digit,
-                factor in zip(body[::-1],vali)]) % 11)]
+                sum([int(digit)*factor for digit, factor in zip(
+                    body[::-1],vali)]) % 11)]
             if operar == vdig:
                 return True
             else:
                 return False
         except IndexError:
-
+            return False
 
     @api.onchange('formated_vat')
     def onchange_document(self):
