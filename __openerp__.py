@@ -3,7 +3,7 @@
     'author': u'Blanco Martín & Asociados',
     'category': 'Localization/Chile',
     'depends': ['base_vat'],
-    'description': u'''\n\nIncorporate a field with the RUT (VAT) formatted 
+    'description': u'''\n\nIncorporate a field with the RUT (VAT) formatted \
 according chilean customs.\n\n''',
     'installable': True,
     'license': 'AGPL-3',
