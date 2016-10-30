@@ -43,4 +43,3 @@ class res_partner(models.Model):
         self.formated_vat = '%s.%s.%s-%s' % (
             formated_vat[0:2], formated_vat[2:5], formated_vat[5:8],
             formated_vat[-1])
-
